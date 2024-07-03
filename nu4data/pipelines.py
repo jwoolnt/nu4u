@@ -8,6 +8,6 @@
 from itemadapter import ItemAdapter
 
 
-class Nu4UPipeline:
+class NU4DataPipeline:
     def process_item(self, item, spider):
         return item

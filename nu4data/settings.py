@@ -1,4 +1,4 @@
-# Scrapy settings for nu4u project
+# Scrapy settings for nu4data project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "nu4u"
+BOT_NAME = "nu4data"
 
-SPIDER_MODULES = ["nu4u.spiders"]
-NEWSPIDER_MODULE = "nu4u.spiders"
+SPIDER_MODULES = ["nu4data.spiders"]
+NEWSPIDER_MODULE = "nu4data.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "nu4u (+http://www.yourdomain.com)"
+#USER_AGENT = "nu4data (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -45,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "nu4u.middlewares.Nu4USpiderMiddleware": 543,
+#    "nu4data.middlewares.NU4DataSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "nu4u.middlewares.Nu4UDownloaderMiddleware": 543,
+#    "nu4data.middlewares.NU4DataDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    "nu4u.pipelines.Nu4UPipeline": 300,
+#    "nu4data.pipelines.NU4DataPipeline": 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
