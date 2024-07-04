@@ -21,13 +21,24 @@ class CoursesSpider(Spider):
 
         for course_block in course_blocks:
             raw_title = course_block.css(".courseblocktitle strong::text").get()
-            title_words = raw_title.split()
-            code = title_words[0] + " " + title_words[1]
-            name = " ".join(title_words[2:-2])
-            units = title_words[-2][-1] # TODO: Add Int Type Checking
+            (code, name, units) = self.tidy_title(raw_title)
 
             description = course_block.css(".courseblockdesc::text").get()
 
             # TODO: Parse PreReqs
 
             yield CourseItem(code, name, units, description)
+
+    def tidy_title(self, raw_title: str) -> tuple[str, str, int]:
+        title_words = raw_title.split()
+
+        code = title_words[0] + " " + title_words[1]
+        name = " ".join(title_words[2:-2])
+        units: int
+        try:
+            units = int(title_words[-2][-1])
+        except ValueError:
+            # TODO: Log Error
+            units = -1
+
+        return (code, name, units)
