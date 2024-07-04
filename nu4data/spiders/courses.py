@@ -29,7 +29,7 @@ class CoursesSpider(Spider):
             yield CourseItem(code, name, units, description, prereqs)
 
     def parse_title(self, course_block: Selector) -> tuple[str, str, int]:
-        words = course_block.css(".courseblocktitle strong::text").get().split()
+        words = course_block.css("strong::text").get().split()
 
         code = words[0] + " " + words[1]
         name = " ".join(words[2:-2])
