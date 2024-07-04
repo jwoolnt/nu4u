@@ -5,11 +5,12 @@
 
 from dataclasses import dataclass
 
+type PreReqs = None | str
+
 @dataclass
 class CourseItem:
 	code: str
 	name: str
 	units: int
 	description: str
-	# TODO: Add PreReqs Field
-	#prereqs: None | str
+	prereqs: PreReqs
