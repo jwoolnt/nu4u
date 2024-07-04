@@ -46,8 +46,13 @@ class CoursesSpider(Spider):
         html = course_block.css(".courseblockextra").get()
         if html is None or "Prerequisite" not in html: return None
 
+        tidy_text = self.clean_html(html)
+        tidy_text = tidy_text.removeprefix("Prerequisite: ")
+
+        return tidy_text
+
+    def clean_html(self, html: str) -> str:
         tidy_text = sub("<[^>]*>", "", html).strip()
         tidy_text = sub("\s", " ", tidy_text)
-        tidy_text = tidy_text.removeprefix("Prerequisite: ")
 
         return tidy_text
