@@ -37,8 +37,8 @@ class CoursesSpider(Spider):
         units: int
         try:
             units = int(title_words[-2][-1])
-        except ValueError:
-            # TODO: Log Error
+        except ValueError as error:
+            self.logger.error(error)
             units = -1
 
         return (code, name, units)
