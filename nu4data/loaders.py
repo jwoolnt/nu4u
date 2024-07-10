@@ -1,3 +1,5 @@
+from typing import Optional
+
 from itemloaders.processors import MapCompose # TODO: Check if there is a way to use Compose instead?
 from scrapy.loader import ItemLoader
 
@@ -16,7 +18,7 @@ def clean_html_text(text: str):
 def extract_words(
 		text: str,
 		i: int,
-		j: int = None,
+		j: Optional[int] = None,
 		/,
 		start_left: bool = True,
 		one_word: bool = False,
