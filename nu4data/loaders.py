@@ -1,6 +1,6 @@
 from typing import Optional
 
-from itemloaders.processors import MapCompose # TODO: Check if there is a way to use Compose instead?
+from itemloaders.processors import MapCompose, TakeFirst
 from scrapy.loader import ItemLoader
 
 from nu4data.items import CoursesItem
@@ -40,6 +40,7 @@ def extract_words(
 class CoursesLoader(ItemLoader):
 	default_item_class = CoursesItem
 	default_input_processor = MapCompose(clean_html_text)
+	default_output_processor = TakeFirst()
 
 	code_in = MapCompose(lambda text: extract_words(text, 2))
 	name_in = MapCompose(lambda text: extract_words(text, 2, -2))

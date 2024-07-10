@@ -3,7 +3,6 @@ from scrapy import Spider, Request
 from scrapy.http import HtmlResponse
 
 from nu4data.loaders import CoursesLoader
-from nu4data.items import CoursesItem
 
 
 class CoursesSpider(Spider):
