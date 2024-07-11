@@ -7,5 +7,5 @@ class CoursesItem(Item):
 	code: str = Field()
 	name: str = Field()
 	units: int = Field()
-	description: str = Field()
+	description: Optional[str] = Field()
 	requirements: Optional[str] = Field()
