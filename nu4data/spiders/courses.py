@@ -28,7 +28,7 @@ class CoursesSpider(Spider):
             description_selector = ".courseblockdesc"
             prereqs_selector = ".courseblockextra.noindent"
 
-            loader.add_css("code", title_selector, re="[A-Z_]+\s\d+(?:-(?:\d|[A-Z]{2}))?")
+            loader.add_css("code", title_selector, re="[A-Z_]+\s\d+(?:-(?:\d|[A-Z]{2}))*")
             loader.add_css("name", title_selector, re="(?:(?<=-\d\s)|(?<=-[A-Z]{2}\s)).+(?=\s\()")
             loader.add_css("units", title_selector, re="(?<=\()\d+(?=\s)")
             loader.add_css("description", description_selector)
