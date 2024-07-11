@@ -26,11 +26,11 @@ class CoursesSpider(Spider):
 
             title_selector = "strong::text"
             description_selector = ".courseblockdesc"
-            # TODO: prereqs_selector = ".courseblockextra.noindent"
+            prereqs_selector = ".courseblockextra.noindent"
 
             loader.add_css("code", title_selector, re="[A-Z_]+\s\d+(?:-(?:\d|[A-Z]{2}))?")
             loader.add_css("name", title_selector, re="(?:(?<=-\d\s)|(?<=-[A-Z]{2}\s)).+(?=\s\()")
             loader.add_css("units", title_selector, re="(?<=\()\d+(?=\s)")
             loader.add_css("description", description_selector)
-            # TODO: loader.add_css("prereqs", prereqs_selector)
+            loader.add_css("prereqs", prereqs_selector, re="(?<=Prerequisite:\s).+")
             yield loader.load_item()

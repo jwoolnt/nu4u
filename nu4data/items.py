@@ -1,3 +1,5 @@
+from typing import Optional
+
 from scrapy import Item, Field
 
 
@@ -6,4 +8,4 @@ class CoursesItem(Item):
 	name: str = Field()
 	units: int = Field()
 	description: str = Field()
-	# TODO: prereqs: Optional[str] = Field()
+	prereqs: Optional[str] = Field()
