@@ -8,4 +8,4 @@ class CoursesItem(Item):
 	name: str = Field()
 	units: int = Field()
 	description: str = Field()
-	prereqs: Optional[str] = Field()
+	requirements: Optional[str] = Field()
