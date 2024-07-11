@@ -30,7 +30,7 @@ class CoursesSpider(Spider):
 
             loader.add_css("code", title_selector, re="[A-Z_]+\s\d+(?:-(?:\d|[A-Z]{2}))*")
             loader.add_css("name", title_selector, re="(?:(?<=-\d\s)|(?<=-[A-Z]{2}\s)).+(?=\s\()")
-            loader.add_css("units", title_selector, re="(?<=\()\d+(?=\s)")
+            loader.add_css("units", title_selector, re="(?<=\()\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?(?=\s)")
             loader.add_css("description", description_selector)
             loader.add_css("requirements", prereqs_selector, re="(?<=Prerequisite:\s).+")
             yield loader.load_item()
