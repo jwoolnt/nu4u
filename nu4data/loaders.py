@@ -4,7 +4,7 @@ from scrapy.loader import ItemLoader
 from nu4data.items import CoursesItem
 
 
-def clean_html_text(text: str):
+def clean_html_text(text: str) -> str:
 	from re import sub
 
 	clean_text = sub("<[^>]*>", "", text).strip()
