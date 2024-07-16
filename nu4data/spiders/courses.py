@@ -27,10 +27,11 @@ class CoursesSpider(Spider):
             title_selector = "strong::text"
             description_selector = ".courseblockdesc"
             prereqs_selector = ".courseblockextra.noindent"
+            # TODO: ".courseblockextra:not(.noindent)"
 
-            loader.add_css("code", title_selector, re="[A-Z_]+\s\d+(?:-(?:\d|[A-Z]{2}))*")
-            loader.add_css("name", title_selector, re="(?:(?<=-\d\s)|(?<=-[A-Z]{2}\s)).+(?=\s\()")
-            loader.add_css("units", title_selector, re="(?<=\()\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?(?=\s)")
+            loader.add_css("code", title_selector, re=r"[A-Z_]+\s\d+(?:-(?:\d|[A-Z]{2}))*")
+            loader.add_css("name", title_selector, re=r"(?:(?<=-\d\s)|(?<=-[A-Z]{2}\s)).+(?=\s\()")
+            loader.add_css("units", title_selector, re=r"(?<=\()\d+(?:\.\d+)?(?:-\d+(?:\.\d+)?)?(?=\s)")
             loader.add_css("description", description_selector)
-            loader.add_css("requirements", prereqs_selector, re="(?<=Prerequisite:\s).+")
+            loader.add_css("requirements", prereqs_selector, re=r"(?<=Prerequisite:\s).+") # TODO: Is this regex necessary?
             yield loader.load_item()
